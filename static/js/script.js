@@ -1,3 +1,40 @@
+// Overlay functionality
+function hideAllOverlays() {
+  const overlays = document.querySelectorAll('.overlay-section');
+  overlays.forEach(overlay => overlay.classList.remove('active'));
+}
+
+function showContactOverlay() {
+  hideAllOverlays();
+  const overlay = document.getElementById('contactOverlay');
+  overlay.classList.add('active');
+}
+
+function showAboutOverlay() {
+  hideAllOverlays();
+  const overlay = document.getElementById('aboutOverlay');
+  overlay.classList.add('active');
+}
+
+function hideOverlay(overlayId) {
+  const overlay = document.getElementById(overlayId);
+  overlay.classList.remove('active');
+}
+
+// Close overlay when clicking outside content
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('overlay-section')) {
+    hideOverlay(e.target.id);
+  }
+});
+
+// Close overlay with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    hideAllOverlays();
+  }
+});
+
 // Request Quote functionality
 function requestQuote() {
   // Create modal overlay

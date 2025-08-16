@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Venkey Dresses - Crafted Apparel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
@@ -13,19 +13,12 @@
     <div class="left-panel">
       <header class="header">
         <div class="logo">
-          <svg class="sewing-machine-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="8" width="20" height="8" rx="2"/>
-            <path d="M6 8V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/>
-            <circle cx="8" cy="12" r="1"/>
-            <circle cx="16" cy="12" r="1"/>
-            <path d="M12 8v8"/>
-            <path d="M8 16l8 4"/>
-          </svg>
+          <img src="static/images/overlock-sewing-machine.png" alt="Sewing Machine" class="sewing-machine-icon">
           <h1 class="brand-name">Venkey Dresses</h1>
         </div>
         <nav class="navigation">
-          <a href="#contact" class="nav-link">Contact</a>
-          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link" onclick="showContactOverlay()">Contact</a>
+          <a href="#about" class="nav-link" onclick="showAboutOverlay()">About</a>
         </nav>
       </header>
 
@@ -44,9 +37,97 @@
     <div class="right-panel">
       <div class="workshop-image">
         <img src="static/images/caroline-badran-YWTNP6Y5AHc-unsplash.jpg" alt="Textile manufacturing workshop with sewing machine and fabric rolls" class="workshop-img">
+        
+        <!-- Contact Overlay -->
+        <div id="contactOverlay" class="overlay-section contact-overlay">
+          <div class="overlay-content">
+            <button class="close-overlay" onclick="hideOverlay('contactOverlay')">&times;</button>
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+              <div class="contact-item">
+                <h3>Get in Touch</h3>
+                <p>Ready to discuss your garment manufacturing needs? We're here to help bring your vision to life.</p>
+              </div>
+              <div class="contact-item">
+                <h3>Phone</h3>
+                <p>+91 9441668017<br>+91 8179090163</p>
+              </div>
+              <div class="contact-item">
+                <h3>Email</h3>
+                <p>venkeydresses@gmail.com</p>
+              </div>
+              <div class="contact-item">
+                <h3>Address</h3>
+                <p>15-2-189/3, Obulachari Road<br>Rayadurg-515865<br>Anantapur, Andhra Pradesh</p>
+              </div>
+              <div class="contact-item">
+                <h3>Business Hours</h3>
+                <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Overlay -->
+        <div id="aboutOverlay" class="overlay-section about-overlay">
+          <div class="overlay-content">
+            <button class="close-overlay" onclick="hideOverlay('aboutOverlay')">&times;</button>
+            <h2>About Venkey Dresses</h2>
+            <div class="about-content">
+              <div class="about-section">
+                <h3>Our Story</h3>
+                <p>For over two decades, Venkey Dresses has been at the forefront of textile manufacturing, specializing in premium quality pants and half pants for boys and men. What started as a small family business has grown into a trusted name in the garment industry.</p>
+              </div>
+              <div class="about-section">
+                <h3>Our Expertise</h3>
+                <p>We excel in creating durable school uniforms, professional workwear, and custom apparel. Our commitment to quality craftsmanship and attention to detail sets us apart in the competitive textile market.</p>
+              </div>
+              <div class="about-section">
+                <h3>Quality Promise</h3>
+                <p>Every garment that leaves our workshop undergoes rigorous quality checks. We use premium fabrics and employ skilled artisans who take pride in delivering excellence in every stitch.</p>
+              </div>
+              <div class="about-section">
+                <h3>Sustainability</h3>
+                <p>We are committed to sustainable manufacturing practices, using eco-friendly materials and processes that minimize our environmental impact while maintaining the highest quality standards.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="static/images/overlock-sewing-machine.png" alt="Sewing Machine" class="footer-icon">
+          <span class="footer-brand">Venkey Dresses</span>
+        </div>
+        <p class="footer-description">Excellence in every stitch since 2000</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Quick Contact</h4>
+        <p>📞 +91 9441668017 | +91 8179090163</p>
+        <p>✉️ venkeydresses@gmail.com</p>
+        <p>📍 Rayadurg, Anantapur, AP</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Services</h4>
+        <p>School Uniforms</p>
+        <p>Men's Pants</p>
+        <p>Boys' Apparel</p>
+        <p>Custom Garments</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Venkey Dresses. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="static/js/script.js"></script>
 </body>
