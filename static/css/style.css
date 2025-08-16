@@ -2,12 +2,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-family: 'Martel', serif;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 .container {
@@ -163,7 +172,7 @@ body {
 
 /* Overlay Sections */
 .overlay-section {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -176,6 +185,17 @@ body {
   z-index: 100;
   display: flex;
   align-items: flex-start;
+}
+
+/* Desktop overlay positioning - over the right panel */
+@media (min-width: 769px) {
+  .overlay-section {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    height: 100vh;
+    z-index: 100;
+  }
 }
 
 .overlay-section.active {
@@ -193,6 +213,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .close-overlay {
@@ -238,18 +260,34 @@ body {
 
 /* Contact Overlay Specific Styles */
 .contact-info {
-  display: grid;
-  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   max-width: 500px;
+  width: 100%;
 }
 
 .contact-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid #BC9C59;
+  transition: all 0.3s ease;
 }
 
-.contact-item:last-child {
-  border-bottom: none;
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(5px);
+}
+
+.contact-item h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.contact-item p {
+  margin-bottom: 0;
+  color: #e8e8e8;
 }
 
 /* About Overlay Specific Styles */
@@ -342,17 +380,21 @@ body {
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
+    height: auto;
   }
   
   .left-panel {
     flex: none;
-    height: 60vh;
-    padding: 30px 40px;
+    height: auto;
+    min-height: 100vh;
+    padding: 40px;
+    order: 1;
   }
   
   .right-panel {
     flex: none;
-    height: 40vh;
+    height: 50vh;
+    order: 1;
   }
   
   .header {
@@ -360,7 +402,7 @@ body {
   }
   
   .brand-name {
-    font-size: 24px;
+    font-size: 28px;
   }
   
   .navigation {
@@ -369,13 +411,34 @@ body {
   
   .nav-link {
     font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
   }
   
   .main-content {
-    max-width: none;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-size: 14px;
+    margin-bottom: 30px;
   }
   
   .description {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  
+  .cta-button {
+    padding: 16px 32px;
     font-size: 16px;
   }
   
@@ -391,8 +454,150 @@ body {
   }
   
   .overlay-content h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  
+  .contact-info {
+    gap: 20px;
+  }
+  
+  .contact-item {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .left-panel {
+    padding: 40px 30px;
+    min-height: 100vh;
+    order: 1;
+    height: auto;
+  }
+  
+  .right-panel {
+    display: none;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  .logo {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .sewing-machine-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .navigation {
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .nav-link {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  .brand-name {
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .main-content {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .section-title {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+  
+  .description {
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .cta-button {
+    padding: 16px 32px;
+    font-size: 16px;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+  }
+  
+  /* Mobile overlay styles */
+  .overlay-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+  }
+  
+  .overlay-content {
+    padding: 60px 30px 30px 30px;
+    text-align: center;
+    height: 100vh;
+    overflow-y: auto;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .close-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+  }
+  
+  .overlay-content h2 {
     font-size: 28px;
     margin-bottom: 30px;
+    margin-top: 20px;
   }
   
   .overlay-content h3 {
@@ -400,33 +605,72 @@ body {
   }
   
   .overlay-content p {
-    font-size: 15px;
+    font-size: 16px;
+  }
+  
+  .contact-info {
+    gap: 20px;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .contact-item {
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  .about-section {
+    margin-bottom: 25px;
+    padding-left: 20px;
+    text-align: left;
+    max-width: 100%;
+  }
+  
+  .about-content {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  /* Footer responsive */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 30px;
+    text-align: center;
+  }
+  
+  .footer-logo {
+    justify-content: center;
+  }
+  
+  .footer {
+    padding: 40px 0 20px 0;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .left-panel {
-    padding: 25px 30px;
-    height: 65vh;
-  }
-  
-  .right-panel {
-    height: 35vh;
+    padding: 30px 20px;
+    min-height: 100vh;
   }
   
   .header {
-    flex-direction: column;
-    align-items: flex-start;
+    margin-bottom: 40px;
     gap: 20px;
-    margin-bottom: 30px;
-  }
-  
-  .navigation {
-    gap: 25px;
   }
   
   .brand-name {
-    font-size: 22px;
+    font-size: 24px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  
+  .navigation {
+    gap: 20px;
   }
   
   .section-title {
@@ -435,7 +679,7 @@ body {
   }
   
   .description {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
   }
   
@@ -444,9 +688,17 @@ body {
     font-size: 15px;
   }
   
-  /* Mobile overlay styles */
+  /* Small mobile overlay styles */
   .overlay-content {
-    padding: 30px 25px;
+    padding: 50px 20px 30px 20px;
+  }
+  
+  .close-overlay {
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    width: 45px;
+    height: 45px;
   }
   
   .overlay-content h2 {
@@ -460,22 +712,40 @@ body {
   
   .overlay-content p {
     font-size: 14px;
+    line-height: 1.5;
   }
   
-  .about-section {
-    margin-bottom: 25px;
-    padding-left: 20px;
+  .contact-item {
+    padding: 16px;
   }
   
   .contact-info {
+    gap: 15px;
+  }
+  
+  .about-section {
+    margin-bottom: 20px;
+    padding-left: 16px;
+  }
+  
+  /* Footer mobile */
+  .footer-content {
+    padding: 0 20px;
     gap: 25px;
   }
   
-  /* Footer responsive */
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 0 30px;
+  .footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-section p {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  
+  .footer-brand {
+    font-size: 18px;
   }
   
   .footer {
@@ -483,72 +753,18 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .left-panel {
-    padding: 20px 25px;
+/* Touch interactions for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.25);
   }
   
-  .brand-name {
-    font-size: 20px;
+  .cta-button:active {
+    transform: scale(0.98);
   }
   
-  .nav-link {
-    font-size: 15px;
-  }
-  
-  .navigation {
-    gap: 20px;
-  }
-  
-  .description {
-    font-size: 14px;
-  }
-  
-  .cta-button {
-    padding: 12px 24px;
-    font-size: 14px;
-  }
-  
-  /* Small mobile overlay styles */
-  .overlay-content {
-    padding: 25px 20px;
-  }
-  
-  .close-overlay {
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-  }
-  
-  .overlay-content h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-  
-  .overlay-content h3 {
-    font-size: 15px;
-  }
-  
-  .overlay-content p {
-    font-size: 13px;
-    line-height: 1.5;
-  }
-  
-  /* Footer mobile */
-  .footer-content {
-    padding: 0 25px;
-    gap: 25px;
-  }
-  
-  .footer-section h4 {
-    font-size: 16px;
-  }
-  
-  .footer-section p {
-    font-size: 13px;
-  }
-  
-  .footer-brand {
-    font-size: 18px;
+  .close-overlay:active {
+    transform: scale(0.95);
   }
 }

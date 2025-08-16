@@ -5,20 +5,32 @@ function hideAllOverlays() {
 }
 
 function showContactOverlay() {
+  console.log('showContactOverlay called');
   hideAllOverlays();
   const overlay = document.getElementById('contactOverlay');
-  overlay.classList.add('active');
+  console.log('Contact overlay element:', overlay);
+  if (overlay) {
+    overlay.classList.add('active');
+    console.log('Active class added to contact overlay');
+  }
 }
 
 function showAboutOverlay() {
+  console.log('showAboutOverlay called');
   hideAllOverlays();
   const overlay = document.getElementById('aboutOverlay');
-  overlay.classList.add('active');
+  console.log('About overlay element:', overlay);
+  if (overlay) {
+    overlay.classList.add('active');
+    console.log('Active class added to about overlay');
+  }
 }
 
 function hideOverlay(overlayId) {
   const overlay = document.getElementById(overlayId);
-  overlay.classList.remove('active');
+  if (overlay) {
+    overlay.classList.remove('active');
+  }
 }
 
 // Close overlay when clicking outside content
