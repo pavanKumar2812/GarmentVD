@@ -475,6 +475,25 @@ body {
   .container {
     flex-direction: column;
     height: auto;
+    background-image: url('../images/caroline-badran-YWTNP6Y5AHc-unsplash.jpg');
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Add overlay for better text readability */
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
   }
   
   .left-panel {
@@ -482,6 +501,9 @@ body {
     min-height: 100vh;
     order: 1;
     height: auto;
+    background: transparent;
+    position: relative;
+    z-index: 2;
   }
   
   .right-panel {
@@ -521,6 +543,8 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   }
   
   .nav-link:active {
@@ -531,6 +555,8 @@ body {
   .brand-name {
     font-size: 28px;
     text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
   
   .main-content {
@@ -542,6 +568,8 @@ body {
     font-size: 14px;
     letter-spacing: 3px;
     margin-bottom: 30px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
   
   .description {
@@ -549,6 +577,8 @@ body {
     line-height: 1.7;
     text-align: center;
     margin-bottom: 40px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
   
   .cta-button {
@@ -675,7 +705,7 @@ body {
   
   .section-title {
     font-size: 12px;
-    letter-spacing: 2px;
+    letter-spacing: 11px;
   }
   
   .description {
