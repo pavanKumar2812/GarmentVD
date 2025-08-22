@@ -286,9 +286,41 @@ function submitQuote(event) {
   event.preventDefault();
   
   const formData = new FormData(event.target);
-  const data = Object.fromEntries(formData);
+  const submitButton = event.target.querySelector('.submit-btn');
   
-  // Show success message
+  // Show loading state
+  submitButton.disabled = true;
+  submitButton.innerHTML = 'Submitting...';
+  
+  // Submit to Formspree
+  fetch('https://formspree.io/f/xvgqekow', {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      // Show success message
+      showSuccessMessage();
+    } else {
+      response.json().then(data => {
+        if (Object.hasOwnProperty.call(data, 'errors')) {
+          showErrorMessage('There was a problem submitting your form. Please try again.');
+        } else {
+          showSuccessMessage();
+        }
+      });
+    }
+  })
+  .catch(error => {
+    showErrorMessage('There was a problem submitting your form. Please check your internet connection and try again.');
+  });
+}
+
+// Show success message function
+function showSuccessMessage() {
   const modal = document.querySelector('.modal-content');
   modal.innerHTML = `
     <div class="success-message">
@@ -300,17 +332,42 @@ function submitQuote(event) {
   `;
 
   // Add success message styles
-  const successStyles = `
+  addMessageStyles();
+
+  // Auto close after 5 seconds
+  setTimeout(() => {
+    closeModal();
+  }, 5000);
+}
+
+// Show error message function
+function showErrorMessage(message) {
+  const modal = document.querySelector('.modal-content');
+  modal.innerHTML = `
+    <div class="error-message">
+      <div class="error-icon">✕</div>
+      <h3>Submission Failed</h3>
+      <p>${message}</p>
+      <button class="close-error-btn" onclick="closeModal()">Try Again</button>
+    </div>
+  `;
+
+  // Add error message styles
+  addMessageStyles();
+}
+
+// Add message styles function
+function addMessageStyles() {
+  const messageStyles = `
     <style>
-      .success-message {
+      .success-message, .error-message {
         text-align: center;
         padding: 50px 30px;
       }
 
-      .success-icon {
+      .success-icon, .error-icon {
         width: 80px;
         height: 80px;
-        background: #28a745;
         color: white;
         border-radius: 50%;
         display: flex;
@@ -321,26 +378,34 @@ function submitQuote(event) {
         animation: scaleIn 0.5s ease;
       }
 
+      .success-icon {
+        background: #28a745;
+      }
+
+      .error-icon {
+        background: #dc3545;
+      }
+
       @keyframes scaleIn {
         from { transform: scale(0); }
         to { transform: scale(1); }
       }
 
-      .success-message h3 {
+      .success-message h3, .error-message h3 {
         color: #333;
         margin-bottom: 15px;
         font-family: 'Playfair Display', serif;
         font-size: 24px;
       }
 
-      .success-message p {
+      .success-message p, .error-message p {
         color: #666;
         line-height: 1.6;
         margin-bottom: 30px;
         font-size: 16px;
       }
 
-      .close-success-btn {
+      .close-success-btn, .close-error-btn {
         background: linear-gradient(135deg, #b8a082 0%, #a08968 100%);
         color: white;
         border: none;
@@ -352,19 +417,22 @@ function submitQuote(event) {
         font-family: 'Inter', sans-serif;
       }
 
-      .close-success-btn:hover {
+      .close-success-btn:hover, .close-error-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(184, 160, 130, 0.3);
+      }
+
+      .close-error-btn {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+      }
+
+      .close-error-btn:hover {
+        box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
       }
     </style>
   `;
 
-  document.head.insertAdjacentHTML('beforeend', successStyles);
-
-  // Auto close after 5 seconds
-  setTimeout(() => {
-    closeModal();
-  }, 5000);
+  document.head.insertAdjacentHTML('beforeend', messageStyles);
 }
 
 // Close modal when clicking outside
