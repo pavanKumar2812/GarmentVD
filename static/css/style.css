@@ -184,7 +184,11 @@ body {
   transition: all 0.4s ease;
   z-index: 100;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* Desktop overlay positioning - over the right panel */
@@ -205,16 +209,22 @@ body {
 
 .overlay-content {
   padding: 60px 50px;
-  height: 100%;
-  overflow: hidden;
+  height: auto;
+  max-height: calc(100vh - 40px);
+  overflow: visible;
   color: white;
   font-family: 'Martel', serif;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  margin: auto;
+  width: 100%;
+  max-width: 600px;
 }
 
 .close-overlay {
@@ -376,95 +386,207 @@ body {
   opacity: 0.7;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+/* Mobile breakpoint for small screens and fix overlay scrolling */
+@media (max-width: 1024px), (max-height: 700px) {
   .container {
     flex-direction: column;
     height: auto;
-  }
-  
-  .left-panel {
-    flex: none;
-    height: auto;
     min-height: 100vh;
-    padding: 40px;
-    order: 1;
+    background-image: url('../images/caroline-badran-YWTNP6Y5AHc-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
   }
-  
+
+  /* Add overlay for better text readability */
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .left-panel {
+    width: 100%;
+    padding: 40px 30px;
+    min-height: 100vh;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+  }
+
   .right-panel {
-    flex: none;
-    height: 50vh;
-    order: 1;
+    display: none;
   }
-  
+
   .header {
-    margin-bottom: 40px;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 50px;
+    text-align: center;
   }
-  
+
+  .logo {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navigation {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .nav-link {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  }
+
+  .nav-link:hover,
+  .nav-link:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.25);
+  }
+
   .brand-name {
     font-size: 28px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
-  
-  .navigation {
-    gap: 30px;
-  }
-  
-  .nav-link {
-    font-size: 16px;
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
+
   .main-content {
-    max-width: 600px;
-    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
   }
-  
+
   .section-title {
     font-size: 14px;
+    letter-spacing: 8px;
     margin-bottom: 30px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
-  
+
   .description {
     font-size: 18px;
     line-height: 1.7;
+    text-align: center;
     margin-bottom: 40px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
-  
+
   .cta-button {
     padding: 16px 32px;
     font-size: 16px;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
   }
-  
-  /* Overlay responsive styles */
+
+  /* Footer mobile adjustments */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 30px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  /* Overlay fixes for small screens - single scroll only */
+  .overlay-section {
+    align-items: flex-start;
+    padding: 0;
+    overflow-y: auto;
+  }
+
   .overlay-content {
-    padding: 40px 30px;
+    margin: 20px;
+    max-height: none;
+    min-height: calc(100vh - 40px);
+    padding: 60px 30px 30px 30px;
+    width: calc(100% - 40px);
+    overflow: visible;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
   }
-  
+
   .close-overlay {
+    position: fixed;
     top: 20px;
-    right: 25px;
+    right: 20px;
     font-size: 32px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
   }
-  
+
   .overlay-content h2 {
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 30px;
+    margin-top: 20px;
   }
-  
+
   .contact-info {
     gap: 20px;
+    max-width: 100%;
+    width: 100%;
   }
-  
+
   .contact-item {
-    padding: 16px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 10px;
   }
+
+  .contact-item h3,
+  .about-section h3 {
+    font-size: 18px;
+  }
+
+  .contact-item p,
+  .about-section p {
+    font-size: 16px;
+  }
+
+  .about-section {
+    margin-bottom: 25px;
+    padding-left: 20px;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .about-content {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  /* This breakpoint is now handled by the mobile breakpoint above */
 }
 
 @media (max-width: 768px) {
@@ -602,11 +724,15 @@ body {
   .overlay-content {
     padding: 60px 30px 30px 30px;
     text-align: center;
-    height: 100vh;
+    height: auto;
+    max-height: calc(100vh - 40px);
     overflow-y: auto;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 40px);
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
   }
   
   .close-overlay {
