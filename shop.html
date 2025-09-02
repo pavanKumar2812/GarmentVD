@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Venkey Dresses | Our Products & Garment Collection</title>
+  <meta name="description" content="Browse Venkey Dresses product collection - School uniforms, cotton trousers, jeans, and pants for boys & men. Bulk orders available. Minimum order 50 pieces.">
+  <meta name="keywords" content="Venkey Dresses products, school uniforms shop, cotton trousers buy, jeans manufacturer, bulk order garments, wholesale uniforms">
+  <meta name="author" content="Venkey Dresses">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Shop - Venkey Dresses Product Collection">
+  <meta property="og:description" content="Browse our collection of school uniforms, cotton trousers, jeans & garments. Bulk orders available with minimum 50 pieces.">
+  <meta property="og:image" content="https://venkeydresses.in/static/images/caroline-badran-YWTNP6Y5AHc-unsplash.jpg">
+  <meta property="og:url" content="https://venkeydresses.in/shop.html">
+  <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="icon" type="image/x-icon" href="static/images/Frame 6.png">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Martel', serif;
+    }
+
+    .shop-container {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #8A7548 0%, #BC9C59 100%);
+    }
+
+    /* Header/Navbar Styles */
+    .shop-header-nav {
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-logo:hover {
+      color: white;
+    }
+
+    .sewing-machine-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: #FDFAE7;
+      margin: 0;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 300;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+
+    .nav-link.active {
+      background: #BC9C59;
+      border-color: #BC9C59;
+      color: white;
+    }
+
+    /* Mobile menu button */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .shop-content {
+      padding: 20px;
+    }
+
+    .shop-header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+      padding: 20px 20px 10px 20px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(0);
+      opacity: 1;
+      will-change: transform, opacity;
+    }
+
+    .shop-header.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      margin-bottom: 0;
+      padding: 0 20px;
+    }
+
+    .shop-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .shop-subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Products grid: consistent card sizing & centered layout */
+    .products-grid {
+      --card-min: 260px;
+      --card-max: 320px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
+      gap: 28px;
+      max-width: calc(var(--card-max) * 4 + 28px * 3); /* up to 4 cards nicely */
+      margin: 0 auto 10px auto;
+      padding: 0 32px;
+      justify-items: center; /* center cards in their grid tracks */
+    }
+
+    /* Category Navigation */
+    .category-nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0 40px 0;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .category-btn {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .category-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-btn.active {
+      background: #BC9C59;
+      border-color: #BC9C59;
+      color: white;
+    }
+
+    /* Product Cards - Square Myntra Style */
+    .product-card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: var(--card-max, 320px);
+      position: relative;
+      background-clip: padding-box;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+      border-color: rgba(138, 117, 72, 0.3);
+    }
+
+    .product-image-container {
+      width: 100%;
+      aspect-ratio: 3/4; /* stable vertical rhythm */
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(45deg, #f8f9fa, #f1f3f4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.45s ease;
+      cursor: pointer;
+      background: #f8f9fa;
+      padding: 4px; /* breathing space */
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.02);
+    }
+
+    /* Image Modal */
+    .image-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 3000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      max-height: 80vh;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: scale(1.1);
+    }
+
+    .modal-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: white;
+      padding: 30px 20px 20px;
+      text-align: center;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .modal-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: #BC9C59;
+    }
+
+    .product-info {
+      padding: 18px 20px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+      line-height: 1.3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .product-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #8A7548;
+      margin-bottom: 10px;
+    }
+
+    .product-details {
+      display: none; /* Hide detailed info in square layout */
+    }
+
+    .product-sizes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .size-tag {
+      background: #e9ecef;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      color: #495057;
+      font-weight: 500;
+    }
+
+    .product-mfg-time {
+      margin-bottom: 12px;
+    }
+
+    .mfg-time-label {
+      background: #fff3cd;
+      color: #856404;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      border: 1px solid #ffeaa7;
+    }
+
+    .order-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #8A7548, #BC9C59);
+      color: white;
+      border: none;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: auto;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 3px 10px rgba(138, 117, 72, 0.3);
+    }
+
+    .order-btn:hover {
+      background: linear-gradient(135deg, #BC9C59, #A08849);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(138, 117, 72, 0.4);
+    }
+
+    .order-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 8px rgba(138, 117, 72, 0.3);
+    }
+
+    /* Compact product info for grid view */
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .product-fabric {
+      background: #e3f2fd;
+      color: #1976d2;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .product-gender {
+      background: #f3e5f5;
+      color: #7b1fa2;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+      padding: 60px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .loading::before {
+      content: "⏳";
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 16px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .no-products {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: white;
+      font-size: 1.1rem;
+      padding: 60px 20px;
+      opacity: 0.8;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .no-products::before {
+      content: "📦";
+      display: block;
+      font-size: 3rem;
+      margin-bottom: 16px;
+      opacity: 0.6;
+    }
+
+    .bulk-order-notice {
+      background: #8A7548;
+      color: white;
+      padding: 40px 20px;
+      margin: 50px auto;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 800px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .bulk-order-notice h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .bulk-order-notice p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .contact-btn {
+      background: #BC9C59;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .contact-btn:hover {
+      background: #A08849;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+
+    /* Overlay Styles */
+    .overlay-section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .overlay-section.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .overlay-content {
+      padding: 60px 50px;
+      height: auto;
+      max-height: calc(100vh - 40px);
+      overflow: visible;
+      color: white;
+      font-family: 'Martel', serif;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      margin: auto;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .close-overlay {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 36px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      z-index: 2001;
+    }
+
+    .close-overlay:hover {
+      opacity: 0.7;
+    }
+
+    .overlay-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #FDFAE7;
+    }
+
+    .overlay-content h3 {
+      font-family: 'Martel', serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #BC9C59;
+    }
+
+    .overlay-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 300;
+      color: #d0d0d0;
+      margin-bottom: 16px;
+    }
+
+    /* Contact Overlay Specific Styles */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      border-left: 4px solid #BC9C59;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(5px);
+    }
+
+    .contact-item h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .contact-item p {
+      margin-bottom: 0;
+      color: #e8e8e8;
+    }
+
+    /* About Overlay Specific Styles */
+    .about-content {
+      max-width: 600px;
+    }
+
+    .about-section {
+      margin-bottom: 32px;
+      border-left: 3px solid #BC9C59;
+      padding-left: 24px;
+    }
+
+    .about-section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+      color: #e0e0e0;
+      padding: 40px 0 0 0;
+      margin-top: 50px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 20px 30px 20px;
+    }
+
+    .footer-section h4 {
+      color: #BC9C59;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .footer-section p {
+      margin: 8px 0;
+      color: #b0b0b0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .footer-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #FDFAE7;
+    }
+
+    .footer-description {
+      font-style: italic;
+      color: #BC9C59 !important;
+      font-size: 0.95rem !important;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding: 20px;
+      text-align: center;
+      background: #111;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .nav-container {
+        padding: 0 20px;
+      }
+      
+      .navigation {
+        gap: 20px;
+      }
+      
+      .nav-link {
+        font-size: 1rem;
+        padding: 8px 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .navigation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .navigation.mobile-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .nav-container {
+        padding: 0 15px;
+        position: relative;
+      }
+      
+      .brand-name {
+        font-size: 1.5rem;
+      }
+      
+      .shop-title {
+        font-size: 1.8rem;
+      }
+
+      .shop-subtitle {
+        font-size: 0.95rem;
+      }
+      
+      .category-nav {
+        margin: 15px 20px 30px 20px;
+        gap: 12px;
+        padding: 15px;
+      }
+
+      .category-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .products-grid {
+        --card-min: 250px;
+        --card-max: 300px;
+        grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
+        gap: 26px;
+        padding: 0 24px;
+        justify-items: center;
+      }
+      
+      .product-card {
+        aspect-ratio: 3/4.2;
+      }
+
+      .product-info {
+        padding: 16px;
+      }
+
+      .product-title {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+
+      .product-price {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+
+      .order-btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+
+      .product-meta {
+        margin-bottom: 8px;
+        font-size: 0.8rem;
+      }
+
+      .product-fabric,
+      .product-gender {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+      }
+
+      .product-sizes {
+        margin-bottom: 10px;
+      }
+
+      .mfg-time-label {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+      
+      .bulk-order-notice {
+        margin: 30px 15px;
+        padding: 30px 15px;
+      }
+      
+      .bulk-order-notice h3 {
+        font-size: 1.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 15px 25px 15px;
+      }
+
+      .footer-section h4 {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-container {
+        padding: 0 10px;
+      }
+      
+      .brand-name {
+        font-size: 1.3rem;
+      }
+      
+      .shop-header {
+        padding: 10px;
+      }
+      
+      .shop-title {
+        font-size: 1.6rem;
+      }
+      
+      .shop-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .category-nav {
+        margin: 10px 15px 25px 15px;
+        gap: 10px;
+        padding: 12px;
+      }
+
+      .category-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+      
+      .products-grid {
+        --card-min: 230px;
+        --card-max: 280px;
+        grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
+        gap: 22px;
+        padding: 0 18px;
+        justify-items: center;
+      }
+      
+      .product-info {
+        padding: 14px;
+      }
+
+      .product-title {
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+
+      .product-price {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+      }
+
+      .order-btn {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+      }
+
+      .product-meta {
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+      }
+
+      .product-fabric,
+      .product-gender {
+        padding: 3px 6px;
+        font-size: 0.7rem;
+      }
+
+      .size-tag {
+        padding: 3px 6px;
+        font-size: 0.7rem;
+      }
+
+      .product-sizes {
+        margin-bottom: 8px;
+      }
+
+      .mfg-time-label {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+      }
+
+      .footer-content {
+        padding: 0 10px 20px 10px;
+        gap: 20px;
+      }
+
+      .footer-logo {
+        gap: 10px;
+      }
+
+      .footer-brand {
+        font-size: 1.2rem;
+      }
+
+      .footer-section h4 {
+        font-size: 1rem;
+      }
+
+      .footer-section p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shop-container">
+    <!-- Header/Navbar -->
+    <header class="shop-header-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="static/images/overlock-sewing-machine.png" alt="Sewing Machine" class="sewing-machine-icon">
+          <h1 class="brand-name">Venkey Dresses</h1>
+        </a>
+        <nav class="navigation">
+          <a href="shop.html" class="nav-link active">Shop</a>
+          <a href="#contact" class="nav-link" onclick="showContactOverlay(); return false;">Contact</a>
+          <a href="#about" class="nav-link" onclick="showAboutOverlay(); return false;">About</a>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      </div>
+    </header>
+
+    <div class="shop-content">
+    
+    <div class="shop-header">
+      <h1 class="shop-title">Our Products</h1>
+      <p class="shop-subtitle">
+        Discover our premium collection of garments manufactured with precision and care. 
+        From school uniforms to casual wear, we deliver excellence in every stitch.
+      </p>
+    </div>
+
+    <!-- Category Navigation -->
+    <div class="category-nav">
+      <button class="category-btn active" onclick="filterProducts('all')">All Products</button>
+      <button class="category-btn" onclick="filterProducts('Half Pants')">Half Pants</button>
+      <button class="category-btn" onclick="filterProducts('Boys Pants')">Boys Pants</button>
+      <button class="category-btn" onclick="filterProducts('Gents Pants')">Gents Pants</button>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" id="productsGrid">
+      <div class="loading">Loading products...</div>
+    </div>
+
+    <div class="bulk-order-notice">
+      <h3>🏭 Bulk Orders Welcome</h3>
+      <p><strong>Minimum Order Quantity: 50 Pieces</strong></p>
+      <p>
+        We specialize in bulk manufacturing for schools, institutions, retailers, and businesses. 
+        Our production capacity ensures timely delivery of large orders without compromising on quality.
+      </p>
+      <p>
+        <strong>Special Benefits for Bulk Orders:</strong><br>
+        • Competitive wholesale pricing<br>
+        • Custom sizing and specifications<br>
+        • Priority production scheduling<br>
+        • Quality assurance guarantee<br>
+        • Flexible payment terms
+      </p>
+      <a href="#contact" class="contact-btn" onclick="showContactOverlay(); return false;">
+        Contact Us for Bulk Orders
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="static/images/overlock-sewing-machine.png" alt="Sewing Machine" class="footer-icon">
+          <span class="footer-brand">Venkey Dresses</span>
+        </div>
+        <p class="footer-description">Excellence in every stitch since 2000</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Quick Contact</h4>
+        <p>📞 +91 9441668017 | +91 8179090163</p>
+        <p>✉️ venkeydresses@gmail.com</p>
+        <p>📍 Rayadurg, Anantapur, AP</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Services</h4>
+        <p>School Uniforms</p>
+        <p>Men's Pants</p>
+        <p>Boy's Apparel</p>
+        <p>Custom Garments</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Venkey Dresses. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="image-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeImageModal()">&times;</button>
+      <img id="modalImage" src="" alt="" class="modal-image">
+      <div class="modal-info">
+        <div id="modalTitle" class="modal-title"></div>
+        <div id="modalPrice" class="modal-price"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Overlay -->
+  <div id="contactOverlay" class="overlay-section contact-overlay">
+    <div class="overlay-content">
+      <button class="close-overlay" onclick="hideOverlay('contactOverlay')">&times;</button>
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <h3>Get in Touch</h3>
+          <p>Ready to discuss your garment manufacturing needs? We're here to help bring your vision to life.</p>
+        </div>
+        <div class="contact-item">
+          <h3>Phone</h3>
+          <p>+91 9441668017<br>+91 8179090163</p>
+        </div>
+        <div class="contact-item">
+          <h3>Email</h3>
+          <p>venkeydresses@gmail.com</p>
+        </div>
+        <div class="contact-item">
+          <h3>Address</h3>
+          <p>15-2-189/7, Obulachari Road, Chowdeswari Temple Area<br>Nesepet, Rayadurgam-515865<br>Anantapur, Andhra Pradesh</p>
+        </div>
+        <div class="contact-item">
+          <h3>Business Hours</h3>
+          <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Overlay -->
+  <div id="aboutOverlay" class="overlay-section about-overlay">
+    <div class="overlay-content">
+      <button class="close-overlay" onclick="hideOverlay('aboutOverlay')">&times;</button>
+      <h2>About Venkey Dresses</h2>
+      <div class="about-content">
+        <div class="about-section">
+          <h3>Our Story</h3>
+          <p>For over two decades, Venkey Dresses has been at the forefront of textile manufacturing, specializing in premium quality pants and half pants for boys and men. What started as a small family business has grown into a trusted name in the garment industry.</p>
+        </div>
+        <div class="about-section">
+          <h3>Our Expertise</h3>
+          <p>We excel in creating durable school uniforms, professional workwear, and custom apparel. Our commitment to quality craftsmanship and attention to detail sets us apart in the competitive textile market.</p>
+        </div>
+        <div class="about-section">
+          <h3>Quality Promise</h3>
+          <p>Every garment that leaves our workshop undergoes rigorous quality checks. We use premium fabrics and employ skilled artisans who take pride in delivering excellence in every stitch.</p>
+        </div>
+        <div class="about-section">
+          <h3>Sustainability</h3>
+          <p>We are committed to sustainable manufacturing practices, using eco-friendly materials and processes that minimize our environmental impact while maintaining the highest quality standards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Product data structure based on your folder structure
+    const productData = {
+      "Half Pants": [
+        {
+          id: "school_boys_navy_blue_hf",
+          title: "School Boys Navy Blue Cotton Trouser",
+          price: "₹190",
+          minOrder: "50 Pieces",
+          colour: "Navy Blue",
+          fabric: "Matty",
+          gender: "Boys",
+          sizes: ["12", "13", "14", "15", "16", "17"],
+          mfgTime: "Minimum 20 days",
+          image: "static/shop/Half Pants/school_boys_navy_blue_hf/school-boys-navy-blue-cotton-trouser-1000x1000.webp",
+          category: "Half Pants"
+        }
+      ],
+      "Boys Pants": [
+        // Add more products here as they become available
+      ],
+      "Gents Pants": [
+        // Add more products here as they become available
+      ]
+    };
+
+    let allProducts = [];
+    let currentFilter = 'all';
+
+    // Initialize products
+    function initializeProducts() {
+      allProducts = [];
+      Object.keys(productData).forEach(category => {
+        allProducts = allProducts.concat(productData[category]);
+      });
+      displayProducts(allProducts);
+    }
+
+    // Display products
+    function displayProducts(products) {
+      const grid = document.getElementById('productsGrid');
+      
+      if (products.length === 0) {
+        grid.innerHTML = '<div class="no-products">No products available in this category.</div>';
+        return;
+      }
+
+      grid.innerHTML = products.map(product => `
+        <div class="product-card" onclick="showProductDetails('${product.id}')">
+          <div class="product-image-container">
+            <img src="${product.image}" alt="${product.title}" class="product-image" 
+                 onclick="event.stopPropagation(); openImageModal('${product.image}', '${product.title}', '${product.price}')"
+                 onerror="this.src='static/images/placeholder-product.jpg'; this.onerror=null;">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">${product.title}</h3>
+            <div class="product-meta">
+              <span class="product-fabric">${product.fabric}</span>
+              <span class="product-gender">${product.gender}</span>
+            </div>
+            <div class="product-price">${product.price}</div>
+            ${product.sizes && product.sizes.length > 0 ? `
+              <div class="product-sizes">
+                ${product.sizes.map(size => `<span class="size-tag">${size}</span>`).join('')}
+                ${product.sizes.length > 6 ? `<span class="size-tag">+${product.sizes.length - 6}</span>` : ''}
+              </div>
+            ` : ''}
+            ${product.mfgTime ? `
+              <div class="product-mfg-time">
+                <span class="mfg-time-label">⏱️ ${product.mfgTime}</span>
+              </div>
+            ` : ''}
+            <button class="order-btn" onclick="event.stopPropagation(); orderProduct('${product.id}')">
+              Order Now
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // Add animation to new products
+      const productCards = grid.querySelectorAll('.product-card');
+      productCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          card.style.transition = 'all 0.6s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    }
+
+    // Filter products by category
+    function filterProducts(category) {
+      currentFilter = category;
+      
+      // Update active button
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+
+      // Filter and display products
+      let filteredProducts = [];
+      if (category === 'all') {
+        filteredProducts = allProducts;
+      } else {
+        filteredProducts = allProducts.filter(product => product.category === category);
+      }
+      
+      displayProducts(filteredProducts);
+    }
+
+    // Show product details (can be expanded to show overlay)
+    function showProductDetails(productId) {
+      const product = allProducts.find(p => p.id === productId);
+      if (product) {
+        // Removed popup - product details now handled by card interaction
+        console.log('Product details:', product);
+      }
+    }
+
+    // Order product
+    function orderProduct(productId) {
+      const product = allProducts.find(p => p.id === productId);
+      if (product) {
+        // Open quote request form
+        requestQuote();
+      }
+    }
+
+    // Image Modal Functions
+    function openImageModal(imageSrc, title, price) {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalPrice = document.getElementById('modalPrice');
+      
+      modalImage.src = imageSrc;
+      modalImage.alt = title;
+      modalTitle.textContent = title;
+      modalPrice.textContent = price;
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+
+    // Close image modal when clicking outside the image
+    document.addEventListener('click', function(e) {
+      const modal = document.getElementById('imageModal');
+      if (e.target === modal) {
+        closeImageModal();
+      }
+    });
+
+    // Close image modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    });
+
+    // Overlay functionality
+    function hideAllOverlays() {
+      const overlays = document.querySelectorAll('.overlay-section');
+      overlays.forEach(overlay => overlay.classList.remove('active'));
+    }
+
+    function showContactOverlay() {
+      console.log('showContactOverlay called');
+      hideAllOverlays();
+      const overlay = document.getElementById('contactOverlay');
+      console.log('Contact overlay element:', overlay);
+      if (overlay) {
+        overlay.classList.add('active');
+        console.log('Active class added to contact overlay');
+      }
+    }
+
+    function showAboutOverlay() {
+      console.log('showAboutOverlay called');
+      hideAllOverlays();
+      const overlay = document.getElementById('aboutOverlay');
+      console.log('About overlay element:', overlay);
+      if (overlay) {
+        overlay.classList.add('active');
+        console.log('Active class added to about overlay');
+      }
+    }
+
+    function hideOverlay(overlayId) {
+      const overlay = document.getElementById(overlayId);
+      if (overlay) {
+        overlay.classList.remove('active');
+      }
+    }
+
+    // Close overlay when clicking outside content
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('overlay-section')) {
+        hideOverlay(e.target.id);
+      }
+    });
+
+    // Close overlay with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        hideAllOverlays();
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const navigation = document.querySelector('.navigation');
+      navigation.classList.toggle('mobile-open');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const navigation = document.querySelector('.navigation');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      if (!navigation.contains(e.target) && !menuBtn.contains(e.target)) {
+        navigation.classList.remove('mobile-open');
+      }
+    });
+
+    // Close mobile menu when window is resized to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        document.querySelector('.navigation').classList.remove('mobile-open');
+      }
+    });
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize products
+      initializeProducts();
+      
+      // Header hide/show on scroll with throttling
+      let lastScrollTop = 0;
+      let ticking = false;
+      const header = document.querySelector('.shop-header');
+      
+      function updateHeader() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Only update if scroll difference is significant (reduces shaking)
+        if (Math.abs(scrollTop - lastScrollTop) > 5) {
+          if (scrollTop > 150) { // Start hiding after 150px scroll
+            if (scrollTop > lastScrollTop + 10) {
+              // Scrolling down with threshold
+              header.classList.add('hidden');
+            } else if (scrollTop < lastScrollTop - 10) {
+              // Scrolling up with threshold
+              header.classList.remove('hidden');
+            }
+          } else {
+            // At top of page
+            header.classList.remove('hidden');
+          }
+          
+          lastScrollTop = scrollTop;
+        }
+        
+        ticking = false;
+      }
+      
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      });
+    });
+  </script>
+  <script src="static/js/script.js"></script>
+</body>
+</html>

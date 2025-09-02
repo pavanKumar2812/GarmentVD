@@ -456,7 +456,13 @@ document.addEventListener('DOMContentLoaded', function() {
   
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
-      e.preventDefault();
+      // Only prevent default for overlay links (those with # or onclick)
+      const href = this.getAttribute('href');
+      const hasOnclick = this.hasAttribute('onclick');
+      
+      if (href && href.startsWith('#') || hasOnclick) {
+        e.preventDefault();
+      }
       
       // Add click animation
       this.style.transform = 'scale(0.95)';
@@ -464,8 +470,14 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.transform = 'scale(1)';
       }, 150);
       
-      // You can add actual navigation logic here
+      // Log navigation for debugging
       console.log('Navigation clicked:', this.textContent);
+      
+      // If it's an external link (like shop.html), let it proceed normally
+      if (href && !href.startsWith('#') && !hasOnclick) {
+        // Let the browser handle the navigation naturally
+        return true;
+      }
     });
   });
 });
